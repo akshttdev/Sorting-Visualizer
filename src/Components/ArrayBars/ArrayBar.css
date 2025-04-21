@@ -3,14 +3,14 @@
   height: 70vh;
   display: flex;
   justify-content: center;
-  position: flex;
+  align-items: flex-end; /* Ensures bars grow from bottom */
   left: 0;
   padding-right: 1.5%;
   box-sizing: border-box;
 }
 
-
 .bar {
+  position: relative; /* Key fix for sides to position correctly */
   width: 4vw;
   height: 70vh;
   margin: 0 1.5%;
@@ -57,7 +57,10 @@
 }
 
 .color-bar {
+  width: 100%;
+  position: absolute; /* Position absolutely within the side */
+  bottom: 0; /* Anchor to bottom */
   background-color: rgba(225, 0, 120, 0.5);
   box-shadow: 5px 5px 50px 5px rgba(225, 0, 120, 0.2);
-  transition: 0.3s;
+  transition: height 0.3s ease;
 }

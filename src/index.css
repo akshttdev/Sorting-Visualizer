@@ -1,14 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Unbounded:wght@200..900&display=swap');
 
 :root {
-  background: #EEAECA;
   background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-  font-family: "Special Gothic Expanded One", sans-serif; /* Correct font name */
+  font-family: "Special Gothic Expanded One", sans-serif;
+  --main-font: "Special Gothic Expanded One", sans-serif;
+  --button-font: "Unbounded", sans-serif;
+
 }
 
 .special-gothic-expanded-one-regular {
-  font-family: "Special Gothic Expanded One", sans-serif; /* Use correct font name */
+  font-family: "Special Gothic Expanded One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
+.unbounded {
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}

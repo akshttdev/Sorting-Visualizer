@@ -25,7 +25,7 @@ const ArrayBar = ({ array = [] }) => {
                   className={`color-bar ${side}-color-bar`}
                   style={{
                     height,
-                    transform: `translateY(${translateY})`,
+                    bottom: 0,
                   }}
                 />
               </div>
