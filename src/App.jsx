@@ -1,18 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import ArrayBar from './Components/ArrayBars/ArrayBar.jsx'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Header from './Components/Header/Header.jsx';
+import Footer from './Components/Footer/Footer.jsx';
+import ArrayBar from './Components/ArrayBars/ArrayBar.jsx';
 
 function App() {
+  const [array, setArray] = useState([]);
+  const [selectedAlgo, setSelectedAlgo] = useState("Sorting Algorithm");
 
-  const array = [50 , 40 , 60, 30, 70, 20 , 80, 90 , 35, 45, 23, 47, 12, 65 ,46, 29, 12, 10 ,89, 70];
+  const generateNewArray = () => {
+    const newArray = Array.from({ length: 20 }, () => Math.floor(Math.random() * (70 - 5 + 1)) + 5);
+    setArray(newArray);
+  };
+
+  useEffect(() => {
+    generateNewArray();
+  }, []);
 
   return (
     <>
-      <ArrayBar array = {array}/>
-    </> 
-  )
+      <Header />
+      <ArrayBar array={array} />
+      <Footer 
+        array={array}
+        generateNewArray={generateNewArray}
+        selectedAlgo={selectedAlgo}
+        setSelectedAlgo={setSelectedAlgo}
+      />
+    </>
+  );
 }
 
-export default App
+export default App;
+

@@ -1,16 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./ArrayBar.css";
 
-const ArrayBar = ({ array }) => {
+const ArrayBar = ({ array = [] }) => {
+  if (!array.length) return null;
+
   const max = Math.max(...array);
   const sides = ["right", "left", "front", "back"];
 
   return (
     <div className="bar-container">
       {array.map((value, index) => {
-        const height = `${(value / max) * 70}vh`;
-        const translateY = `${70 - (value / max) * 70}vh`;
+        const percentage = (value / max) * 70;
+        const height = `${percentage}vh`;
+        const translateY = `${70 - percentage}vh`;
 
         return (
           <div className="bar" key={index}>
@@ -33,10 +35,6 @@ const ArrayBar = ({ array }) => {
       })}
     </div>
   );
-};
-
-ArrayBar.propTypes = {
-  array: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default ArrayBar;

@@ -1,3 +1,14 @@
-:root{
-  background-color: #000000;
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+
+:root {
+  background: #EEAECA;
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  font-family: "Special Gothic Expanded One", sans-serif; /* Correct font name */
 }
+
+.special-gothic-expanded-one-regular {
+  font-family: "Special Gothic Expanded One", sans-serif; /* Use correct font name */
+  font-weight: 400;
+  font-style: normal;
+}
+
