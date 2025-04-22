@@ -37,25 +37,27 @@ function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo }) {
         Generate New Array
       </button>
       
-      <button 
-        className="footerBtn dropDown" 
-        onClick={() => setIsOpen(!isOpen)} 
-        ref={buttonRef}
-      >
-        {selectedAlgo}
-      </button>
+      <div className="dropdownContainer">
+        <button 
+          className="footerBtn dropDown" 
+          onClick={() => setIsOpen(!isOpen)} 
+          ref={buttonRef}
+        >
+          {selectedAlgo}
+        </button>
 
-      <button className=" sort">Sort</button>
+        {isOpen && (
+          <div className="dropDownOption" ref={dropdownRef}>
+            <button onClick={() => handleSelect("Bubble Sort")}>Bubble Sort</button>
+            <button onClick={() => handleSelect("Merge Sort")}>Merge Sort</button>
+            <button onClick={() => handleSelect("Quick Sort")}>Quick Sort</button>
+            <button onClick={() => handleSelect("Insertion Sort")}>Insertion Sort</button>
+            <button onClick={() => handleSelect("Selection Sort")}>Selection Sort</button>
+          </div>
+        )}
+      </div>
 
-      {isOpen && (
-        <div className="dropDownOption" ref={dropdownRef}>
-          <button onClick={() => handleSelect("Bubble Sort")}>Bubble Sort</button>
-          <button onClick={() => handleSelect("Merge Sort")}>Merge Sort</button>
-          <button onClick={() => handleSelect("Quick Sort")}>Quick Sort</button>
-          <button onClick={() => handleSelect("Insertion Sort")}>Insertion Sort</button>
-          <button onClick={() => handleSelect("Selection Sort")}>Selection Sort</button>
-        </div>
-      )}
+      <button className="sort">Sort</button>
     </div>
   );
 }
