@@ -9,18 +9,39 @@
   align-items: center;
 }
 
-.Footer button {
-  padding: 15px 20px;
-  font-size: 1.2rem;
-  border: none;
+/* Common button style */
+.footerBtn {
+  width: 280px;
+  height: 55px;
+  font-size: 1.1rem;
+  border: 2px solid #888888;
   cursor: pointer;
   border-radius: 15px;
-  background-color: #4CAF50;
-  color: white;
-  font-family: "Unbounded";
-  border-color: #D3D3D3;
+  background: linear-gradient(
+    to right,
+    rgba(230, 230, 230, 0.2) 0%,
+    rgba(115, 115, 115, 0.2) 100%
+  );
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Unbounded", sans-serif;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
+.footerBtn:hover {
+  border-color: #ffffff;
+  background: linear-gradient(
+    to right,
+    rgba(230, 230, 230, 0.5) 0%,
+    rgba(115, 115, 115, 0.5) 100%
+  );
+}
+
+/* Specific button positions */
 .generateButton {
   position: absolute;
   bottom: 10%;
@@ -36,20 +57,42 @@
 .sort {
   position: absolute;
   bottom: 10%;
-  left: 47%;
-  transform: translateX(-50);
-  padding: 10px 15px;
+  left: 48%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: 2px solid #888888;
+  cursor: pointer;
+  border-radius: 15px;
+  color: white;
+  font-family: "Unbounded";
+  background: linear-gradient(
+    to right,
+    rgba(230, 230, 230, 0.2) 0%,
+    rgba(115, 115, 115, 0.2) 100%
+  );
 }
 
+.sort:hover {
+  border-color: #ffffff;
+  background: linear-gradient(
+    to right,
+    rgba(230, 230, 230, 0.5) 0%,
+    rgba(115, 115, 115, 0.5) 100%
+  );
+}
+
+/* Dropdown styles */
 .dropDownOption {
   position: absolute;
-  bottom: 12%;
-  right: 12%;
+  bottom: 100%; /* Open above the button */
+  right: 0; /* Align the dropdown with the button */
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
   overflow: hidden;
+  width: 100%; /* Match the button width */
 }
 
 .dropDownOption button {
@@ -66,4 +109,3 @@
 .dropDownOption button:hover {
   background-color: #ccc;
 }
-
