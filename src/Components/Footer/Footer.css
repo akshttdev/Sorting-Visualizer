@@ -134,3 +134,17 @@
     rgba(115, 115, 115, 0.5) 100%
   );
 }
+
+.disabledBtn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabledBtn:hover {
+  background: linear-gradient(
+    to right,
+    rgba(230, 230, 230, 0.2) 0%,
+    rgba(115, 115, 115, 0.2) 100%
+  );
+  border-color: #888888;
+}

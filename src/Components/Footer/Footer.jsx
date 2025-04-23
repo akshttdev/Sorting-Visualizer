@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Footer.css";
 
-function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo, handleSort }) {
+function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo, handleSort , isSorting}) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
@@ -31,33 +31,42 @@ function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo, handle
 
   return (
     <div className="Footer">
-      <button className="footerBtn generateButton" onClick={generateNewArray}>
-        Generate New Array
-      </button>
-
-      <div className="dropdownContainer">
         <button
-          className="footerBtn dropDown"
-          onClick={() => setIsOpen(!isOpen)}
-          ref={buttonRef}
-        >
-          {selectedAlgo }
-        </button>
+    className={`footerBtn generateButton ${isSorting ? "disabledBtn" : ""}`}
+    onClick={generateNewArray}
+    disabled={isSorting}
+  >
+    Generate New Array
+  </button>
 
-        {isOpen && (
-          <div className="dropDownOption" ref={dropdownRef}>
-            <button onClick={() => handleSelect("Bubble Sort")}>Bubble Sort</button>
-            <button onClick={() => handleSelect("Merge Sort")}>Merge Sort</button>
-            <button onClick={() => handleSelect("Quick Sort")}>Quick Sort</button>
-            <button onClick={() => handleSelect("Insertion Sort")}>Insertion Sort</button>
-            <button onClick={() => handleSelect("Selection Sort")}>Selection Sort</button>
-          </div>
-        )}
+    <div className="dropdownContainer">
+    <button
+      className={`footerBtn dropDown ${isSorting ? "disabledBtn" : ""}`}
+      onClick={() => !isSorting && setIsOpen(!isOpen)}
+      ref={buttonRef}
+      disabled={isSorting}
+    >
+      {selectedAlgo}
+    </button>
+
+    {isOpen && !isSorting && (
+      <div className="dropDownOption" ref={dropdownRef}>
+        <button onClick={() => handleSelect("Bubble Sort")}>Bubble Sort</button>
+        <button onClick={() => handleSelect("Merge Sort")}>Merge Sort</button>
+        <button onClick={() => handleSelect("Quick Sort")}>Quick Sort</button>
+        <button onClick={() => handleSelect("Insertion Sort")}>Insertion Sort</button>
+        <button onClick={() => handleSelect("Selection Sort")}>Selection Sort</button>
       </div>
+    )}
+  </div>
 
-      <button className=" sort" onClick={handleSort}>
-        Sort
-      </button>
+  <button
+    className={`sort ${isSorting ? "disabledBtn" : ""}`}
+    onClick={handleSort}
+    disabled={isSorting}
+  >
+    Sort
+  </button>
     </div>
   );
 }

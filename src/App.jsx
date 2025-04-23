@@ -80,6 +80,7 @@ function App() {
   };
 
   // Generate a new array when the component mounts
+  
   useEffect(() => {
     generateNewArray(false);
   }, []);
