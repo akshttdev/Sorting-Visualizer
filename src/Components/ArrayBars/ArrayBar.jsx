@@ -12,10 +12,14 @@ const ArrayBar = ({ array = [] }) => {
       {array.map((value, index) => {
         const percentage = (value / max) * 70;
         const height = `${percentage}vh`;
-        const translateY = `${70 - percentage}vh`;
 
         return (
-          <div className="bar" key={index}>
+          <div 
+            className="bar" 
+            key={index}
+            data-value={value}
+            data-index={index}
+          >
             <div className="side top"></div>
             <div className="side bottom"></div>
 
@@ -38,4 +42,3 @@ const ArrayBar = ({ array = [] }) => {
 };
 
 export default ArrayBar;
-

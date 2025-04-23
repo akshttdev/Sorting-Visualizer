@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Footer.css";
 
-function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo }) {
+function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo, handleSort }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
@@ -11,13 +11,12 @@ function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo }) {
     setIsOpen(false);
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        dropdownRef.current && 
-        !dropdownRef.current.contains(event.target) && 
-        buttonRef.current && 
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current &&
         !buttonRef.current.contains(event.target)
       ) {
         setIsOpen(false);
@@ -25,7 +24,6 @@ function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo }) {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -36,11 +34,11 @@ function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo }) {
       <button className="footerBtn generateButton" onClick={generateNewArray}>
         Generate New Array
       </button>
-      
+
       <div className="dropdownContainer">
-        <button 
-          className="footerBtn dropDown" 
-          onClick={() => setIsOpen(!isOpen)} 
+        <button
+          className="footerBtn dropDown"
+          onClick={() => setIsOpen(!isOpen)}
           ref={buttonRef}
         >
           {selectedAlgo}
@@ -57,7 +55,9 @@ function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo }) {
         )}
       </div>
 
-      <button className="sort">Sort</button>
+      <button className=" sort" onClick={handleSort}>
+        Sort
+      </button>
     </div>
   );
 }
