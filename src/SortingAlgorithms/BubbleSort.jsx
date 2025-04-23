@@ -6,7 +6,7 @@ import {
   disableButtons, 
   enableButtons, 
   playCompletedSoundEffect 
-} from "../../Helper.js";
+} from "../Helper.js";
 
 // Create the animation steps for bubble sort
 const getBubbleSortAnimations = (array) => {

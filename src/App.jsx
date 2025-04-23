@@ -5,18 +5,18 @@ import Footer from "./Components/Footer/Footer";
 import ArrayBar from "./Components/ArrayBars/ArrayBar";
 import resetSound from "./Sounds/ResetEffect.mp3";
 import { randomIntFromInterval, playAudio } from "./Helper.js";
-import BubbleSort from "./SortingAlgorithms/BubbleSort/BubbleSort";
+import BubbleSort from "./SortingAlgorithms/BubbleSort.jsx";
 
 function App() {
   const [array, setArray] = useState([]);
-  const [selectedAlgo, setSelectedAlgo] = useState("Bubble Sort");
-  const [animationSpeed, setAnimationSpeed] = useState(50);
+  const [selectedAlgo, setSelectedAlgo] = useState("Select Algorithm");
+  const [animationSpeed, setAnimationSpeed] = useState(300);
   const [isSorting, setIsSorting] = useState(false);
 
   const playSound = () => playAudio(resetSound);
 
   const generateNewArray = (play = true) => {
-    if (isSorting) return; // Don't generate a new array during sorting
+    if (isSorting) return; 
     
     const newArray = Array.from({ length: 20 }, () =>
       randomIntFromInterval(5, 70)
@@ -32,7 +32,7 @@ function App() {
     if (selectedAlgo === "Bubble Sort") {
       BubbleSort(array, animationSpeed, (sortedArray) => {
         console.log("Sort finished!");
-        setArray([...sortedArray]); // Update with sorted array
+        setArray([...sortedArray]); 
         setIsSorting(false);
       });
     }

@@ -41,7 +41,7 @@ function Footer({ array, generateNewArray, selectedAlgo, setSelectedAlgo, handle
           onClick={() => setIsOpen(!isOpen)}
           ref={buttonRef}
         >
-          {selectedAlgo}
+          {selectedAlgo }
         </button>
 
         {isOpen && (
