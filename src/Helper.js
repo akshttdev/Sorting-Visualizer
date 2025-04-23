@@ -1,4 +1,4 @@
-import CompletedEffect from "./sounds/CompletedEffect.mp3";
+import CompletedEffect from "./Sounds/CompletedEffect.mp3";
 
 // ## Fetch all sides of a bar by index - NOW DYNAMIC
 export const getBarStyle = (index) => {
